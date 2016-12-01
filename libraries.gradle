@@ -1,0 +1,32 @@
+/**
+ * library configuration
+ */
+ 
+ext {
+	alibabaJsonVersion		= '1.2.18'
+	scalaVersion			= '2.11.8'
+	
+	servletApiVersion		= '3.0.1'
+	jspApiVersion			= '2.2.1'
+	elApiVersion			= '2.2.5'
+	jstlApiVersion			= '1.2.1'
+	
+	scalaTestVersion		= '3.0.1'
+	testngVersion			= '6.9.10'
+	
+	
+	libraries = [
+		servlet_api:		"javax.servlet:javax.servlet-api:${servletApiVersion}",
+		jsp_api:			"javax.servlet.jsp:javax.servlet.jsp-api:${jspApiVersion}",
+		el_api:				"javax.el:javax.el-api:${elApiVersion}",
+		jstl_api:			"javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:${jstlApiVersion}",
+	
+		alibabaJson:		"com.alibaba:fastjson:${alibabaJsonVersion}",
+		scalaCompiler:		"org.scala-lang:scala-compiler:${scalaVersion}",
+		scalaLibrary:		"org.scala-lang:scala-library:${scalaVersion}",
+		scalaReflect:		"org.scala-lang:scala-reflect:${scalaVersion}",
+    
+		scalaTest:			"org.scalatest:scalatest_2.11:${scalaTestVersion}",
+		testNG:				"org.testng:testng:${testngVersion}"
+	]
+}

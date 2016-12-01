@@ -1,0 +1,48 @@
+
+allprojects {
+	apply plugin: 'java'
+	
+	ext.releaseBuild = version.endsWith('RELEASE')
+    ext.snapshotBuild = version.endsWith('SNAPSHOT')
+	
+	repositories {
+	    mavenCentral()
+	}
+	
+	version = '1.0.0'
+	jar {
+	    manifest {
+	        attributes	'Manifest-Version': '1.0',
+						'Created-By': '1.8.0_92 (Oracle Corporation)',
+	        			'Implementation-Title': 'Zero\'s Scala Spider',
+						'Implementation-Version': version
+	    }
+	}
+	
+	task uploadArchives << {
+	    repositories {
+	       flatDir {
+	           dirs 'repos'
+	       }
+	    }
+	}
+}
+
+ext.webappProjects = subprojects.findAll {project -> project.name.endsWith('webapp')}
+ext.scalaProjects = subprojects.findAll {project -> project.name.startsWith('scala')}
+ext.javaProjects = subprojects.findAll {project -> project.name != 'docs' && project.name != 'manual' && !project.name.contains('front')} - webappProjects - scalaProjects
+
+println("---------------------------");
+println(">> projects of webapp: \t" + webappProjects);
+println("---------------------------");
+println(">> projects of scala: \t" + scalaProjects);
+println("---------------------------");
+println(">> projects of java: \t" + javaProjects);
+println("---------------------------");
+
+// java projects configurations 
+    apply from: "$rootDir/gradle/javaProjects.gradle"
+// webapp projects configurations 
+	apply from: "$rootDir/gradle/webappProjects.gradle"
+// scala projects configurations 
+	apply from: "$rootDir/gradle/scalaProjects.gradle"

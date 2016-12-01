@@ -1,0 +1,9 @@
+rootProject.name = 'gradle-learning'
+
+include ':gradle-learning-utils'
+include ':scala-gradle-learning'
+include ':gradle-learning-database-api'
+include ':gradle-learning-database'
+include ':gradle-learning-service-api'
+include ':gradle-learning-service'
+include ':gradle-learning-webapp'

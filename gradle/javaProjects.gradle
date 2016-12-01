@@ -1,0 +1,45 @@
+
+
+println("---------------------------");
+println(">>>>>>>>> projects of java: \t" + javaProjects);
+println("---------------------------");
+
+configure(javaProjects) {
+	apply plugin: 'java'
+	apply plugin: 'groovy'
+	apply plugin: 'eclipse'
+	
+	eclipse {
+		jdt {
+			sourceCompatibility = 1.8
+			targetCompatibility = 1.8
+		}
+		classpath {
+			downloadSources = true
+			downloadJavadoc = true
+		}
+	}
+	/// source code configuration
+	sourceSets {
+		main {
+			java { srcDirs = ['src/main/java'] }
+			resources { srcDirs = ['src/main/resources'] }
+		}
+		test {
+			java { srcDirs = ['src/test/java'] }
+			resources { srcDirs = ['src/test/resources'] }
+		}
+	}
+	task mkdirs4javaProjects {
+		sourceSets*.java.srcDirs*.each {item -> 
+			if(!item.exists()) {
+				item.mkdirs()
+			}
+		}
+		sourceSets*.resources.srcDirs*.each {item -> 
+			if(!item.exists()) {
+				item.mkdirs()
+			}
+		}
+	}
+}

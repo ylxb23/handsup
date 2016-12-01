@@ -1,0 +1,74 @@
+// include libraries
+apply from: './libraries.gradle'
+apply from: "$rootDir/gradle/projectBuilder.gradle"
+
+project(":gradle-learning-utils") {
+    description = "utils module"
+	
+    dependencies {
+		compile(libraries.alibabaJson)
+		
+		compile(libraries.testNG)
+    }
+}
+
+project(":scala-gradle-learning") {
+    description = "scala project"
+	
+    dependencies {
+
+    }
+}
+
+project(":gradle-learning-database-api") {
+    description = "database api module"
+	
+    dependencies {
+		
+    }
+}
+
+project(":gradle-learning-database") {
+    description = "database module"
+	
+    dependencies {
+		
+		compile(project(":gradle-learning-utils"))
+		compile(project(":gradle-learning-database-api"))
+    }
+}
+
+project(":gradle-learning-service-api") {
+    description = "service api module"
+	
+    dependencies {
+		
+    }
+}
+
+project(":gradle-learning-service") {
+    description = "service module"
+	
+    dependencies {
+		
+		compile(project(":gradle-learning-utils"))
+		compile(project(":gradle-learning-database"))
+		compile(project(":gradle-learning-service-api"))
+    }
+}
+
+project(":gradle-learning-webapp") {
+    description = "webapp module"
+	
+    dependencies {
+		compile(libraries.alibabaJson)
+		compile(libraries.scalaCompiler)
+		compile(libraries.scalaLibrary)
+		compile(libraries.scalaReflect)
+		
+		compile(libraries.scalaTest)
+		compile(libraries.testNG)
+		
+		compile(project(":gradle-learning-service"))
+    }
+}

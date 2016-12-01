@@ -1,0 +1,42 @@
+
+configure(scalaProjects) {
+	apply plugin: 'scala'
+	/// source code configuration
+	sourceSets {
+		main {
+			java { srcDirs = ['src/main/java'] }
+			scala { srcDirs = ['src/main/scala'] }
+			resources { srcDirs = ['src/main/resources'] }
+		}
+		test {
+			java { srcDirs = ['src/test/java'] }
+			scala { srcDirs = ['src/test/scala'] }
+			resources { srcDirs = ['src/test/resources'] }
+		}
+	}
+	
+	task mkdirs4scalaProjects {
+		sourceSets*.java.srcDirs*.each {item -> 
+			if(!item.exists()) {
+				item.mkdirs()
+			}
+		}
+		sourceSets*.scala.srcDirs*.each {item -> 
+			if(!item.exists()) {
+				item.mkdirs()
+			}
+		}
+		sourceSets*.resources.srcDirs*.each {item -> 
+			if(!item.exists()) {
+				item.mkdirs()
+			}
+		}
+	}
+	dependencies {
+		compile(libraries.scalaCompiler)
+		compile(libraries.scalaLibrary)
+		compile(libraries.scalaReflect)
+		
+		compile(libraries.scalaTest)
+    }
+}

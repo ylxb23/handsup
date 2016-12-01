@@ -1,0 +1,13 @@
+
+.project
+.classpath
+.gradle/
+build/
+.settings/
+target/
+
+*.swp
+# *~
+*.log
+*.tmp
+

@@ -1,0 +1,36 @@
+
+configure(webappProjects) {
+	apply plugin: 'java'
+	apply plugin: 'war'
+	apply plugin: 'eclipse'
+	apply plugin: 'eclipse-wtp'
+	/// source code configuration
+	sourceSets {
+		main {
+			java { srcDirs = ['src/main/java'] }
+			resources { srcDirs = ['src/main/resources', 'src/main/webapp'] }
+		}
+		test {
+			java { srcDirs = ['src/test/java'] }
+			resources { srcDirs = ['src/test/resources'] }
+		}
+	}
+	task mkdirs4webappProjects {
+		sourceSets*.java.srcDirs*.each {item -> 
+			if(!item.exists()) {
+				item.mkdirs()
+			}
+		}
+		sourceSets*.resources.srcDirs*.each {item -> 
+			if(!item.exists()) {
+				item.mkdirs()
+			}
+		}
+	}
+	dependencies {
+		providedCompile(libraries.servlet_api)
+		providedCompile(libraries.jsp_api)
+		providedCompile(libraries.el_api)
+		providedCompile(libraries.jstl_api)
+	}
+}

@@ -1,6 +1,7 @@
 rootProject.name = "${projectName}"
 
 include ":${projectName}-utils"
+include ":${projectName}-common"
 include ":${projectName}-scala"
 include ":${projectName}-database-api"
 include ":${projectName}-database"

@@ -12,6 +12,27 @@ project(":${projectName}-utils") {
     }
 }
 
+project(":${projectName}-common") {
+    description = "common module"
+	
+    dependencies {
+		compile(project(":${projectName}-utils"))
+		
+		compile(libraries.mybatis)
+		compile(libraries.springWebmvc)
+		compile(libraries.mybatisSpring)
+		
+		compile(libraries.shiroWeb)
+		compile(libraries.shiroCas)
+		compile(libraries.shiroSpring) {
+			
+		}
+		
+		testCompile(libraries.springMock)
+    }
+}
+
+// an independence project for scala
 project(":${projectName}-scala") {
     description = "scala project"
 	
@@ -24,6 +45,7 @@ project(":${projectName}-database-api") {
     description = "database api module"
 	
     dependencies {
+		compile(project(":${projectName}-common"))
 		
     }
 }
@@ -32,9 +54,8 @@ project(":${projectName}-database") {
     description = "database module"
 	
     dependencies {
-		
-		compile(project(":${projectName}-utils"))
 		compile(project(":${projectName}-database-api"))
+		
     }
 }
 
@@ -42,6 +63,7 @@ project(":${projectName}-service-api") {
     description = "service api module"
 	
     dependencies {
+		compile(project(":${projectName}-database"))
 		
     }
 }
@@ -50,10 +72,8 @@ project(":${projectName}-service") {
     description = "service module"
 	
     dependencies {
-		
-		compile(project(":${projectName}-utils"))
-		compile(project(":${projectName}-database"))
 		compile(project(":${projectName}-service-api"))
+		
     }
 }
 
@@ -61,14 +81,7 @@ project(":${projectName}-webapp") {
     description = "webapp module"
 	
     dependencies {
-		compile(libraries.alibabaJson)
-		compile(libraries.scalaCompiler)
-		compile(libraries.scalaLibrary)
-		compile(libraries.scalaReflect)
-		
-		compile(libraries.scalaTest)
-		compile(libraries.testNG)
-		
 		compile(project(":${projectName}-service"))
+		
     }
 }

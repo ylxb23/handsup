@@ -40,7 +40,7 @@ ext {
 		// apache security solution
 		shiroWeb:					"org.apache.shiro:shiro-web:${shiroVersion}",
 		shiroAspectj:				"org.apache.shiro:shiro-aspectj:${shiroVersion}",
-		shirocas:					"org.apache.shiro:shiro-cas:${shiroVersion}",
+		shiroCas:					"org.apache.shiro:shiro-cas:${shiroVersion}",
 		shiroSpring:				"org.apache.shiro:shiro-spring:${shiroVersion}",
 		shiroQuartz:				"org.apache.shiro:shiro-quartz:${shiroVersion}",
 		shiroEhcache:				"org.apache.shiro:shiro-ehcache:${shiroVersion}",

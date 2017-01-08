@@ -2,7 +2,7 @@
 apply from: './libraries.gradle'
 apply from: "$rootDir/gradle/projectBuilder.gradle"
 
-project(":gradle-learning-utils") {
+project(":${projectName}-utils") {
     description = "utils module"
 	
     dependencies {
@@ -12,7 +12,7 @@ project(":gradle-learning-utils") {
     }
 }
 
-project(":scala-gradle-learning") {
+project(":${projectName}-scala") {
     description = "scala project"
 	
     dependencies {
@@ -20,7 +20,7 @@ project(":scala-gradle-learning") {
     }
 }
 
-project(":gradle-learning-database-api") {
+project(":${projectName}-database-api") {
     description = "database api module"
 	
     dependencies {
@@ -28,17 +28,17 @@ project(":gradle-learning-database-api") {
     }
 }
 
-project(":gradle-learning-database") {
+project(":${projectName}-database") {
     description = "database module"
 	
     dependencies {
 		
-		compile(project(":gradle-learning-utils"))
-		compile(project(":gradle-learning-database-api"))
+		compile(project(":${projectName}-utils"))
+		compile(project(":${projectName}-database-api"))
     }
 }
 
-project(":gradle-learning-service-api") {
+project(":${projectName}-service-api") {
     description = "service api module"
 	
     dependencies {
@@ -46,18 +46,18 @@ project(":gradle-learning-service-api") {
     }
 }
 
-project(":gradle-learning-service") {
+project(":${projectName}-service") {
     description = "service module"
 	
     dependencies {
 		
-		compile(project(":gradle-learning-utils"))
-		compile(project(":gradle-learning-database"))
-		compile(project(":gradle-learning-service-api"))
+		compile(project(":${projectName}-utils"))
+		compile(project(":${projectName}-database"))
+		compile(project(":${projectName}-service-api"))
     }
 }
 
-project(":gradle-learning-webapp") {
+project(":${projectName}-webapp") {
     description = "webapp module"
 	
     dependencies {
@@ -69,6 +69,6 @@ project(":gradle-learning-webapp") {
 		compile(libraries.scalaTest)
 		compile(libraries.testNG)
 		
-		compile(project(":gradle-learning-service"))
+		compile(project(":${projectName}-service"))
     }
 }

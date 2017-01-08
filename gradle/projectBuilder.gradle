@@ -29,7 +29,7 @@ allprojects {
 }
 
 ext.webappProjects = subprojects.findAll {project -> project.name.endsWith('webapp')}
-ext.scalaProjects = subprojects.findAll {project -> project.name.startsWith('scala')}
+ext.scalaProjects = subprojects.findAll {project -> project.name.endsWith('scala')}
 ext.javaProjects = subprojects.findAll {project -> project.name != 'docs' && project.name != 'manual' && !project.name.contains('front')} - webappProjects - scalaProjects
 
 println("---------------------------");

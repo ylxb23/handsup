@@ -1,9 +1,9 @@
-rootProject.name = 'gradle-learning'
+rootProject.name = "${projectName}"
 
-include ':gradle-learning-utils'
-include ':scala-gradle-learning'
-include ':gradle-learning-database-api'
-include ':gradle-learning-database'
-include ':gradle-learning-service-api'
-include ':gradle-learning-service'
-include ':gradle-learning-webapp'
+include ":${projectName}-utils"
+include ":${projectName}-scala"
+include ":${projectName}-database-api"
+include ":${projectName}-database"
+include ":${projectName}-service-api"
+include ":${projectName}-service"
+include ":${projectName}-webapp"

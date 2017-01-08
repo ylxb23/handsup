@@ -3,30 +3,64 @@
  */
  
 ext {
-	alibabaJsonVersion		= '1.2.18'
-	scalaVersion			= '2.11.8'
+	alibabaJsonVersion				= '1.2.18'
+	scalaVersion					= '2.12.1'
 	
-	servletApiVersion		= '3.0.1'
-	jspApiVersion			= '2.2.1'
-	elApiVersion			= '2.2.5'
-	jstlApiVersion			= '1.2.1'
+	servletApiVersion				= '3.0.1'
+	jspApiVersion					= '2.2.1'
+	elApiVersion					= '2.2.5'
+	jstlApiVersion					= '1.2.1'
+
+	mybatisVersion					= '3.4.2'
+	mybatisSpringVersion			= '1.3.1'
+
+	shiroVersion					= '1.3.2'
+
+	springVersion					= '4.3.5.RELEASE'
+	springSecurityVersion			= '4.2.1.RELEASE'
+	springMockVersion				= '2.0.8'
 	
-	scalaTestVersion		= '3.0.1'
-	testngVersion			= '6.9.10'
+	scalaTestVersion				= '3.0.1'
+	testngVersion					= '6.9.10'
 	
+	libraries 		= [
+		servlet_api:				"javax.servlet:		javax.servlet-api:${servletApiVersion}",
+		jsp_api:					"javax.servlet.jsp:javax.servlet.jsp-api:${jspApiVersion}",
+		el_api:						"javax.el:javax.el-api:${elApiVersion}",
+		jstl_api:					"javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:${jstlApiVersion}",
 	
-	libraries = [
-		servlet_api:		"javax.servlet:javax.servlet-api:${servletApiVersion}",
-		jsp_api:			"javax.servlet.jsp:javax.servlet.jsp-api:${jspApiVersion}",
-		el_api:				"javax.el:javax.el-api:${elApiVersion}",
-		jstl_api:			"javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:${jstlApiVersion}",
-	
-		alibabaJson:		"com.alibaba:fastjson:${alibabaJsonVersion}",
-		scalaCompiler:		"org.scala-lang:scala-compiler:${scalaVersion}",
-		scalaLibrary:		"org.scala-lang:scala-library:${scalaVersion}",
-		scalaReflect:		"org.scala-lang:scala-reflect:${scalaVersion}",
-    
-		scalaTest:			"org.scalatest:scalatest_2.11:${scalaTestVersion}",
-		testNG:				"org.testng:testng:${testngVersion}"
+		alibabaJson:				"com.alibaba:fastjson:${alibabaJsonVersion}",
+		scalaCompiler:				"org.scala-lang:scala-compiler:${scalaVersion}",
+		scalaLibrary:				"org.scala-lang:scala-library:${scalaVersion}",
+		scalaReflect:				"org.scala-lang:scala-reflect:${scalaVersion}",
+		
+		mybatis:					"org.mybatis:mybatis:${mybatisVersion}",
+		mybatisSpring:				"org.mybatis:mybatis-spring:${mybatisSpringVersion}",
+		
+		// apache security solution
+		shiroWeb:					"org.apache.shiro:shiro-web:${shiroVersion}",
+		shiroAspectj:				"org.apache.shiro:shiro-aspectj:${shiroVersion}",
+		shirocas:					"org.apache.shiro:shiro-cas:${shiroVersion}",
+		shiroSpring:				"org.apache.shiro:shiro-spring:${shiroVersion}",
+		shiroQuartz:				"org.apache.shiro:shiro-quartz:${shiroVersion}",
+		shiroEhcache:				"org.apache.shiro:shiro-ehcache:${shiroVersion}",
+		
+		springAspects:				"org.springframework:spring-aspects:${springVersion}",
+		springExpression:			"org.springframework:spring-expression:${springVersion}",
+		springInstrument:			"org.springframework:spring-instrument:${springVersion}",
+		springMessaging:			"org.springframework:spring-messaging:${springVersion}",
+		springWebsocket:			"org.springframework:spring-websocket:${springVersion}",
+		springWebmvc:				"org.springframework:spring-webmvc:${springVersion}",
+
+		springSecurity:				"org.springframework-security:spring-security-web:${springSecurityVersion}",
+		springSecurityLdap:			"org.springframework-security:spring-security-ldap:${springSecurityVersion}",
+		springSecurityCas:			"org.springframework-security:spring-security-cas:${springSecurityVersion}",
+		springMock:					"org.springframework:spring-mock:${springMockVersion}",
+		
+		
+		springTest:					"org.springframework:spring-test:${springVersion}",
+		springSecurityTest:			"org.springframework-security:spring-security-test:${springVersion}",
+		scalaTest:					"org.scalatest:scalatest_2.12:${scalaTestVersion}",
+		testNG:						"org.testng:testng:${testngVersion}"
 	]
 }

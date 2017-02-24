@@ -1,8 +1,12 @@
 
 .project
 .classpath
-.gradle/
+.springBeans
+.vinfo
 build/
+bin/
+test-output/
+.gradle/
 .settings/
 target/
 
@@ -10,4 +14,7 @@ target/
 # *~
 *.log
 *.tmp
+*.class
 
+
+node_modules/

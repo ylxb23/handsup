@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zero.handsup.database.repository.user.ShiroRoleRepository" >
+  <resultMap id="BaseResultMap" type="com.zero.handsup.database.repository.user.ShiroRole" >
+    <id column="_id" property="id" jdbcType="INTEGER" />
+    <id column="role_code" property="roleCode" jdbcType="VARCHAR" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="role_grade" property="roleGrade" jdbcType="INTEGER" />
+    <result column="role_description" property="roleDescription" jdbcType="VARCHAR" />
+    <result column="role_validity" property="roleValidity" jdbcType="TIMESTAMP" />
+    <result column="role_status" property="roleStatus" jdbcType="TINYINT" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="TINYINT" />
+  </resultMap>
+
+ <sql id="Base_Column_List" >
+   `_id`,
+   `role_code`,
+   `role_name`,
+   `role_grade`,
+   `role_description`,
+   `role_validity`,
+   `role_status`,
+   `create_user`,
+   `create_time`,
+   `update_time`,
+   `is_deleted`
+ </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from shiro_role
+    where _id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from shiro_role
+    where _id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.zero.handsup.database.repository.user.ShiroRole" >
+    insert into shiro_role ( 
+     `_id`,
+     `role_code`,
+     `role_name`,
+     `role_grade`,
+     `role_description`,
+     `role_validity`,
+     `role_status`,
+     `create_user`,
+     `create_time`,
+     `update_time`,
+     `is_deleted`
+    )
+    values (
+     #{id,jdbcType=INTEGER},
+     #{roleCode,jdbcType=VARCHAR},
+     #{roleName,jdbcType=VARCHAR},
+     #{roleGrade,jdbcType=INTEGER},
+     #{roleDescription,jdbcType=VARCHAR},
+     #{roleValidity,jdbcType=TIMESTAMP},
+     #{roleStatus,jdbcType=TINYINT},
+     #{createUser,jdbcType=VARCHAR},
+     #{createTime,jdbcType=TIMESTAMP},
+     #{updateTime,jdbcType=TIMESTAMP},
+     #{isDeleted,jdbcType=TINYINT}
+ )
+  </insert>
+  
+  
+  
+  <insert id="insertSelective" parameterType="com.zero.handsup.database.repository.user.ShiroRole" >
+    insert into shiro_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        `_id`,
+      </if>
+      <if test="roleCode != null" >
+        `role_code`,
+      </if>
+      <if test="roleName != null" >
+        `role_name`,
+      </if>
+      <if test="roleGrade != null" >
+        `role_grade`,
+      </if>
+      <if test="roleDescription != null" >
+        `role_description`,
+      </if>
+      <if test="roleValidity != null" >
+        `role_validity`,
+      </if>
+      <if test="roleStatus != null" >
+        `role_status`,
+      </if>
+      <if test="createUser != null" >
+        `create_user`,
+      </if>
+      <if test="createTime != null" >
+        `create_time`,
+      </if>
+      <if test="updateTime != null" >
+        `update_time`,
+      </if>
+      <if test="isDeleted != null" >
+        `is_deleted`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roleCode != null" >
+        #{roleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="roleName != null" >
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleGrade != null" >
+        #{roleGrade,jdbcType=INTEGER},
+      </if>
+      <if test="roleDescription != null" >
+        #{roleDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="roleValidity != null" >
+        #{roleValidity,jdbcType=TIMESTAMP},
+      </if>
+      <if test="roleStatus != null" >
+        #{roleStatus,jdbcType=TINYINT},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.zero.handsup.database.repository.user.ShiroRole" >
+    update shiro_role
+	  <set>
+       <if test="roleName != null" >
+        `role_name`= #{roleName,jdbcType=VARCHAR},
+       </if>
+       <if test="roleGrade != null" >
+        `role_grade`= #{roleGrade,jdbcType=INTEGER},
+       </if>
+       <if test="roleDescription != null" >
+        `role_description`= #{roleDescription,jdbcType=VARCHAR},
+       </if>
+       <if test="roleValidity != null" >
+        `role_validity`= #{roleValidity,jdbcType=TIMESTAMP},
+       </if>
+       <if test="roleStatus != null" >
+        `role_status`= #{roleStatus,jdbcType=TINYINT},
+       </if>
+       <if test="createUser != null" >
+        `create_user`= #{createUser,jdbcType=VARCHAR},
+       </if>
+       <if test="createTime != null" >
+        `create_time`= #{createTime,jdbcType=TIMESTAMP},
+       </if>
+       <if test="updateTime != null" >
+        `update_time`= #{updateTime,jdbcType=TIMESTAMP},
+       </if>
+       <if test="isDeleted != null" >
+        `is_deleted`= #{isDeleted,jdbcType=TINYINT},
+       </if>
+          </set>
+    where _id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.zero.handsup.database.repository.user.ShiroRole" >
+    update shiro_role
+    set 
+       `role_name` = #{roleName,jdbcType=VARCHAR},
+       `role_grade` = #{roleGrade,jdbcType=INTEGER},
+       `role_description` = #{roleDescription,jdbcType=VARCHAR},
+       `role_validity` = #{roleValidity,jdbcType=TIMESTAMP},
+       `role_status` = #{roleStatus,jdbcType=TINYINT},
+       `create_user` = #{createUser,jdbcType=VARCHAR},
+       `create_time` = #{createTime,jdbcType=TIMESTAMP},
+       `update_time` = #{updateTime,jdbcType=TIMESTAMP},
+       `is_deleted` = #{isDeleted,jdbcType=TINYINT}
+     where _id = #{id,jdbcType=INTEGER}
+  </update>
+  
+
+  
+  <select id="selectCount" resultType="java.lang.Integer" parameterType="com.zero.handsup.database.repository.user.ShiroRole" >
+    select count(*) from shiro_role
+    <where >
+            <if test="id != null" >
+        and `_id` = #{id,jdbcType=INTEGER}
+      </if>
+            <if test="roleCode != null" >
+        and `role_code` = #{roleCode,jdbcType=VARCHAR}
+      </if>
+            <if test="roleName != null" >
+        and `role_name` = #{roleName,jdbcType=VARCHAR}
+      </if>
+            <if test="roleGrade != null" >
+        and `role_grade` = #{roleGrade,jdbcType=INTEGER}
+      </if>
+            <if test="roleDescription != null" >
+        and `role_description` = #{roleDescription,jdbcType=VARCHAR}
+      </if>
+            <if test="roleValidity != null" >
+        and `role_validity` = #{roleValidity,jdbcType=TIMESTAMP}
+      </if>
+            <if test="roleStatus != null" >
+        and `role_status` = #{roleStatus,jdbcType=TINYINT}
+      </if>
+            <if test="createUser != null" >
+        and `create_user` = #{createUser,jdbcType=VARCHAR}
+      </if>
+            <if test="createTime != null" >
+        and `create_time` = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+            <if test="updateTime != null" >
+        and `update_time` = #{updateTime,jdbcType=TIMESTAMP}
+      </if>
+            <if test="isDeleted != null" >
+        and `is_deleted` = #{isDeleted,jdbcType=TINYINT}
+      </if>
+          </where>
+  </select>
+
+    <select id="selectPage" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from shiro_role where 1 = 1 
+        <if test="shiroRole.id != null" >
+      and `_id` = #{shiroRole.id,jdbcType=INTEGER}
+    </if>
+        <if test="shiroRole.roleCode != null" >
+      and `role_code` = #{shiroRole.roleCode,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroRole.roleName != null" >
+      and `role_name` = #{shiroRole.roleName,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroRole.roleGrade != null" >
+      and `role_grade` = #{shiroRole.roleGrade,jdbcType=INTEGER}
+    </if>
+        <if test="shiroRole.roleDescription != null" >
+      and `role_description` = #{shiroRole.roleDescription,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroRole.roleValidity != null" >
+      and `role_validity` = #{shiroRole.roleValidity,jdbcType=TIMESTAMP}
+    </if>
+        <if test="shiroRole.roleStatus != null" >
+      and `role_status` = #{shiroRole.roleStatus,jdbcType=TINYINT}
+    </if>
+        <if test="shiroRole.createUser != null" >
+      and `create_user` = #{shiroRole.createUser,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroRole.createTime != null" >
+      and `create_time` = #{shiroRole.createTime,jdbcType=TIMESTAMP}
+    </if>
+        <if test="shiroRole.updateTime != null" >
+      and `update_time` = #{shiroRole.updateTime,jdbcType=TIMESTAMP}
+    </if>
+        <if test="shiroRole.isDeleted != null" >
+      and `is_deleted` = #{shiroRole.isDeleted,jdbcType=TINYINT}
+    </if>
+        <if test="pageable.sort != null" >
+      order by 
+      <foreach collection="pageable.sort" item="order" separator="," >
+        <if test="
+   order.property == '_id' 
+   || order.property == 'role_code'
+   || order.property == 'role_name'
+   || order.property == 'role_grade'
+   || order.property == 'role_description'
+   || order.property == 'role_validity'
+   || order.property == 'role_status'
+   || order.property == 'create_user'
+   || order.property == 'create_time'
+   || order.property == 'update_time'
+   || order.property == 'is_deleted'
+        " >
+        		${order.property} ${order.direction}
+        </if>
+      </foreach>
+    </if>
+    <if test="pageable.offset >= 0 and pageable.pageSize > 0" >
+      limit ${pageable.offset}, ${pageable.pageSize}
+    </if>
+  </select>
+ </mapper>
+  
+
+  
+	

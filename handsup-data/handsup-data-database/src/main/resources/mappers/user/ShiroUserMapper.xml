@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zero.handsup.database.repository.user.ShiroUserRepository" >
+  <resultMap id="BaseResultMap" type="com.zero.handsup.database.repository.user.ShiroUser" >
+    <id column="_id" property="id" jdbcType="BIGINT" />
+    <result column="user_name_en" property="userNameEn" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_loginname" property="userLoginname" jdbcType="VARCHAR" />
+    <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
+    <result column="user_lastloginip" property="userLastloginip" jdbcType="VARCHAR" />
+    <result column="user_lastlogintime" property="userLastlogintime" jdbcType="TIMESTAMP" />
+    <result column="user_merchant_code" property="userMerchantCode" jdbcType="VARCHAR" />
+    <result column="user_sales_code" property="userSalesCode" jdbcType="VARCHAR" />
+    <result column="user_alias" property="userAlias" jdbcType="VARCHAR" />
+    <result column="user_status" property="userStatus" jdbcType="TINYINT" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="TINYINT" />
+  </resultMap>
+
+ <sql id="Base_Column_List" >
+   `_id`,
+   `user_name_en`,
+   `user_name`,
+   `user_loginname`,
+   `user_password`,
+   `user_lastloginip`,
+   `user_lastlogintime`,
+   `user_merchant_code`,
+   `user_sales_code`,
+   `user_alias`,
+   `user_status`,
+   `create_user`,
+   `create_time`,
+   `update_time`,
+   `is_deleted`
+ </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from shiro_user
+    where _id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from shiro_user
+    where _id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="com.zero.handsup.database.repository.user.ShiroUser" >
+    insert into shiro_user ( 
+     `_id`,
+     `user_name_en`,
+     `user_name`,
+     `user_loginname`,
+     `user_password`,
+     `user_lastloginip`,
+     `user_lastlogintime`,
+     `user_merchant_code`,
+     `user_sales_code`,
+     `user_alias`,
+     `user_status`,
+     `create_user`,
+     `create_time`,
+     `update_time`,
+     `is_deleted`
+    )
+    values (
+     #{id,jdbcType=BIGINT},
+     #{userNameEn,jdbcType=VARCHAR},
+     #{userName,jdbcType=VARCHAR},
+     #{userLoginname,jdbcType=VARCHAR},
+     #{userPassword,jdbcType=VARCHAR},
+     #{userLastloginip,jdbcType=VARCHAR},
+     #{userLastlogintime,jdbcType=TIMESTAMP},
+     #{userMerchantCode,jdbcType=VARCHAR},
+     #{userSalesCode,jdbcType=VARCHAR},
+     #{userAlias,jdbcType=VARCHAR},
+     #{userStatus,jdbcType=TINYINT},
+     #{createUser,jdbcType=VARCHAR},
+     #{createTime,jdbcType=TIMESTAMP},
+     #{updateTime,jdbcType=TIMESTAMP},
+     #{isDeleted,jdbcType=TINYINT}
+ )
+  </insert>
+  
+  
+  
+  <insert id="insertSelective" parameterType="com.zero.handsup.database.repository.user.ShiroUser" >
+    insert into shiro_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        `_id`,
+      </if>
+      <if test="userNameEn != null" >
+        `user_name_en`,
+      </if>
+      <if test="userName != null" >
+        `user_name`,
+      </if>
+      <if test="userLoginname != null" >
+        `user_loginname`,
+      </if>
+      <if test="userPassword != null" >
+        `user_password`,
+      </if>
+      <if test="userLastloginip != null" >
+        `user_lastloginip`,
+      </if>
+      <if test="userLastlogintime != null" >
+        `user_lastlogintime`,
+      </if>
+      <if test="userMerchantCode != null" >
+        `user_merchant_code`,
+      </if>
+      <if test="userSalesCode != null" >
+        `user_sales_code`,
+      </if>
+      <if test="userAlias != null" >
+        `user_alias`,
+      </if>
+      <if test="userStatus != null" >
+        `user_status`,
+      </if>
+      <if test="createUser != null" >
+        `create_user`,
+      </if>
+      <if test="createTime != null" >
+        `create_time`,
+      </if>
+      <if test="updateTime != null" >
+        `update_time`,
+      </if>
+      <if test="isDeleted != null" >
+        `is_deleted`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userNameEn != null" >
+        #{userNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userLoginname != null" >
+        #{userLoginname,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userLastloginip != null" >
+        #{userLastloginip,jdbcType=VARCHAR},
+      </if>
+      <if test="userLastlogintime != null" >
+        #{userLastlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userMerchantCode != null" >
+        #{userMerchantCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userSalesCode != null" >
+        #{userSalesCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userAlias != null" >
+        #{userAlias,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null" >
+        #{userStatus,jdbcType=TINYINT},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.zero.handsup.database.repository.user.ShiroUser" >
+    update shiro_user
+	  <set>
+       <if test="userNameEn != null" >
+        `user_name_en`= #{userNameEn,jdbcType=VARCHAR},
+       </if>
+       <if test="userName != null" >
+        `user_name`= #{userName,jdbcType=VARCHAR},
+       </if>
+       <if test="userLoginname != null" >
+        `user_loginname`= #{userLoginname,jdbcType=VARCHAR},
+       </if>
+       <if test="userPassword != null" >
+        `user_password`= #{userPassword,jdbcType=VARCHAR},
+       </if>
+       <if test="userLastloginip != null" >
+        `user_lastloginip`= #{userLastloginip,jdbcType=VARCHAR},
+       </if>
+       <if test="userLastlogintime != null" >
+        `user_lastlogintime`= #{userLastlogintime,jdbcType=TIMESTAMP},
+       </if>
+       <if test="userMerchantCode != null" >
+        `user_merchant_code`= #{userMerchantCode,jdbcType=VARCHAR},
+       </if>
+       <if test="userSalesCode != null" >
+        `user_sales_code`= #{userSalesCode,jdbcType=VARCHAR},
+       </if>
+       <if test="userAlias != null" >
+        `user_alias`= #{userAlias,jdbcType=VARCHAR},
+       </if>
+       <if test="userStatus != null" >
+        `user_status`= #{userStatus,jdbcType=TINYINT},
+       </if>
+       <if test="createUser != null" >
+        `create_user`= #{createUser,jdbcType=VARCHAR},
+       </if>
+       <if test="createTime != null" >
+        `create_time`= #{createTime,jdbcType=TIMESTAMP},
+       </if>
+       <if test="updateTime != null" >
+        `update_time`= #{updateTime,jdbcType=TIMESTAMP},
+       </if>
+       <if test="isDeleted != null" >
+        `is_deleted`= #{isDeleted,jdbcType=TINYINT},
+       </if>
+          </set>
+    where _id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.zero.handsup.database.repository.user.ShiroUser" >
+    update shiro_user
+    set 
+       `user_name_en` = #{userNameEn,jdbcType=VARCHAR},
+       `user_name` = #{userName,jdbcType=VARCHAR},
+       `user_loginname` = #{userLoginname,jdbcType=VARCHAR},
+       `user_password` = #{userPassword,jdbcType=VARCHAR},
+       `user_lastloginip` = #{userLastloginip,jdbcType=VARCHAR},
+       `user_lastlogintime` = #{userLastlogintime,jdbcType=TIMESTAMP},
+       `user_merchant_code` = #{userMerchantCode,jdbcType=VARCHAR},
+       `user_sales_code` = #{userSalesCode,jdbcType=VARCHAR},
+       `user_alias` = #{userAlias,jdbcType=VARCHAR},
+       `user_status` = #{userStatus,jdbcType=TINYINT},
+       `create_user` = #{createUser,jdbcType=VARCHAR},
+       `create_time` = #{createTime,jdbcType=TIMESTAMP},
+       `update_time` = #{updateTime,jdbcType=TIMESTAMP},
+       `is_deleted` = #{isDeleted,jdbcType=TINYINT}
+     where _id = #{id,jdbcType=BIGINT}
+  </update>
+  
+
+  
+  <select id="selectCount" resultType="java.lang.Integer" parameterType="com.zero.handsup.database.repository.user.ShiroUser" >
+    select count(*) from shiro_user
+    <where >
+            <if test="id != null" >
+        and `_id` = #{id,jdbcType=BIGINT}
+      </if>
+            <if test="userNameEn != null" >
+        and `user_name_en` = #{userNameEn,jdbcType=VARCHAR}
+      </if>
+            <if test="userName != null" >
+        and `user_name` = #{userName,jdbcType=VARCHAR}
+      </if>
+            <if test="userLoginname != null" >
+        and `user_loginname` = #{userLoginname,jdbcType=VARCHAR}
+      </if>
+            <if test="userPassword != null" >
+        and `user_password` = #{userPassword,jdbcType=VARCHAR}
+      </if>
+            <if test="userLastloginip != null" >
+        and `user_lastloginip` = #{userLastloginip,jdbcType=VARCHAR}
+      </if>
+            <if test="userLastlogintime != null" >
+        and `user_lastlogintime` = #{userLastlogintime,jdbcType=TIMESTAMP}
+      </if>
+            <if test="userMerchantCode != null" >
+        and `user_merchant_code` = #{userMerchantCode,jdbcType=VARCHAR}
+      </if>
+            <if test="userSalesCode != null" >
+        and `user_sales_code` = #{userSalesCode,jdbcType=VARCHAR}
+      </if>
+            <if test="userAlias != null" >
+        and `user_alias` = #{userAlias,jdbcType=VARCHAR}
+      </if>
+            <if test="userStatus != null" >
+        and `user_status` = #{userStatus,jdbcType=TINYINT}
+      </if>
+            <if test="createUser != null" >
+        and `create_user` = #{createUser,jdbcType=VARCHAR}
+      </if>
+            <if test="createTime != null" >
+        and `create_time` = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+            <if test="updateTime != null" >
+        and `update_time` = #{updateTime,jdbcType=TIMESTAMP}
+      </if>
+            <if test="isDeleted != null" >
+        and `is_deleted` = #{isDeleted,jdbcType=TINYINT}
+      </if>
+          </where>
+  </select>
+
+    <select id="selectPage" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from shiro_user where 1 = 1 
+        <if test="shiroUser.id != null" >
+      and `_id` = #{shiroUser.id,jdbcType=BIGINT}
+    </if>
+        <if test="shiroUser.userNameEn != null" >
+      and `user_name_en` = #{shiroUser.userNameEn,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUser.userName != null" >
+      and `user_name` = #{shiroUser.userName,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUser.userLoginname != null" >
+      and `user_loginname` = #{shiroUser.userLoginname,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUser.userPassword != null" >
+      and `user_password` = #{shiroUser.userPassword,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUser.userLastloginip != null" >
+      and `user_lastloginip` = #{shiroUser.userLastloginip,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUser.userLastlogintime != null" >
+      and `user_lastlogintime` = #{shiroUser.userLastlogintime,jdbcType=TIMESTAMP}
+    </if>
+        <if test="shiroUser.userMerchantCode != null" >
+      and `user_merchant_code` = #{shiroUser.userMerchantCode,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUser.userSalesCode != null" >
+      and `user_sales_code` = #{shiroUser.userSalesCode,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUser.userAlias != null" >
+      and `user_alias` = #{shiroUser.userAlias,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUser.userStatus != null" >
+      and `user_status` = #{shiroUser.userStatus,jdbcType=TINYINT}
+    </if>
+        <if test="shiroUser.createUser != null" >
+      and `create_user` = #{shiroUser.createUser,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUser.createTime != null" >
+      and `create_time` = #{shiroUser.createTime,jdbcType=TIMESTAMP}
+    </if>
+        <if test="shiroUser.updateTime != null" >
+      and `update_time` = #{shiroUser.updateTime,jdbcType=TIMESTAMP}
+    </if>
+        <if test="shiroUser.isDeleted != null" >
+      and `is_deleted` = #{shiroUser.isDeleted,jdbcType=TINYINT}
+    </if>
+        <if test="pageable.sort != null" >
+      order by 
+      <foreach collection="pageable.sort" item="order" separator="," >
+        <if test="
+   order.property == '_id' 
+   || order.property == 'user_name_en'
+   || order.property == 'user_name'
+   || order.property == 'user_loginname'
+   || order.property == 'user_password'
+   || order.property == 'user_lastloginip'
+   || order.property == 'user_lastlogintime'
+   || order.property == 'user_merchant_code'
+   || order.property == 'user_sales_code'
+   || order.property == 'user_alias'
+   || order.property == 'user_status'
+   || order.property == 'create_user'
+   || order.property == 'create_time'
+   || order.property == 'update_time'
+   || order.property == 'is_deleted'
+        " >
+        		${order.property} ${order.direction}
+        </if>
+      </foreach>
+    </if>
+    <if test="pageable.offset >= 0 and pageable.pageSize > 0" >
+      limit ${pageable.offset}, ${pageable.pageSize}
+    </if>
+  </select>
+ </mapper>
+  
+
+  
+	

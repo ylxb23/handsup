@@ -1,0 +1,40 @@
+
+
+project(":${projectName}-base:${projectName}-base-utils") {
+    description = "utils module"
+	
+    dependencies {
+		compile(libraries.alibabaJson)
+		
+		testCompile(libraries.testNG)
+    }
+}
+
+project(":${projectName}-base:${projectName}-base-common") {
+    description = "common module"
+	
+    dependencies {
+		compile(project(":${projectName}-base:${projectName}-base-utils"))
+		
+		compile(libraries.commonsLang3)
+		compile(libraries.lombok)
+		compile(libraries.servlet_api)
+		compile(libraries.mysqlConnector)
+		compile(libraries.c3p0)
+		compile(libraries.mybatis)
+		compile(libraries.springData)
+		compile(libraries.springWebmvc)
+		compile(libraries.springTx)
+		compile(libraries.springConextSupport)
+		compile(libraries.mybatisSpring)
+		
+		compile(libraries.kaptcha)
+		compile(libraries.shiroWeb)
+		compile(libraries.shiroCas)
+		compile(libraries.shiroSpring) {
+			
+		}
+		
+		testCompile(libraries.springMock)
+    }
+}

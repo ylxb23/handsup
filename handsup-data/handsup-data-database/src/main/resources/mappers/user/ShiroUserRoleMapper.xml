@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zero.handsup.database.repository.user.ShiroUserRoleRepository" >
+  <resultMap id="BaseResultMap" type="com.zero.handsup.database.repository.user.ShiroUserRole" >
+    <id column="_id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="role_code" property="roleCode" jdbcType="VARCHAR" />
+    <result column="user_role_description" property="userRoleDescription" jdbcType="VARCHAR" />
+    <result column="user_role_status" property="userRoleStatus" jdbcType="TINYINT" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="TINYINT" />
+  </resultMap>
+
+ <sql id="Base_Column_List" >
+   `_id`,
+   `user_id`,
+   `role_code`,
+   `user_role_description`,
+   `user_role_status`,
+   `create_user`,
+   `create_time`,
+   `update_time`,
+   `is_deleted`
+ </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from shiro_user_role
+    where _id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from shiro_user_role
+    where _id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.zero.handsup.database.repository.user.ShiroUserRole" >
+    insert into shiro_user_role ( 
+     `_id`,
+     `user_id`,
+     `role_code`,
+     `user_role_description`,
+     `user_role_status`,
+     `create_user`,
+     `create_time`,
+     `update_time`,
+     `is_deleted`
+    )
+    values (
+     #{id,jdbcType=INTEGER},
+     #{userId,jdbcType=BIGINT},
+     #{roleCode,jdbcType=VARCHAR},
+     #{userRoleDescription,jdbcType=VARCHAR},
+     #{userRoleStatus,jdbcType=TINYINT},
+     #{createUser,jdbcType=VARCHAR},
+     #{createTime,jdbcType=TIMESTAMP},
+     #{updateTime,jdbcType=TIMESTAMP},
+     #{isDeleted,jdbcType=TINYINT}
+ )
+  </insert>
+  
+  
+  
+  <insert id="insertSelective" parameterType="com.zero.handsup.database.repository.user.ShiroUserRole" >
+    insert into shiro_user_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        `_id`,
+      </if>
+      <if test="userId != null" >
+        `user_id`,
+      </if>
+      <if test="roleCode != null" >
+        `role_code`,
+      </if>
+      <if test="userRoleDescription != null" >
+        `user_role_description`,
+      </if>
+      <if test="userRoleStatus != null" >
+        `user_role_status`,
+      </if>
+      <if test="createUser != null" >
+        `create_user`,
+      </if>
+      <if test="createTime != null" >
+        `create_time`,
+      </if>
+      <if test="updateTime != null" >
+        `update_time`,
+      </if>
+      <if test="isDeleted != null" >
+        `is_deleted`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="roleCode != null" >
+        #{roleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userRoleDescription != null" >
+        #{userRoleDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="userRoleStatus != null" >
+        #{userRoleStatus,jdbcType=TINYINT},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.zero.handsup.database.repository.user.ShiroUserRole" >
+    update shiro_user_role
+	  <set>
+       <if test="userId != null" >
+        `user_id`= #{userId,jdbcType=BIGINT},
+       </if>
+       <if test="roleCode != null" >
+        `role_code`= #{roleCode,jdbcType=VARCHAR},
+       </if>
+       <if test="userRoleDescription != null" >
+        `user_role_description`= #{userRoleDescription,jdbcType=VARCHAR},
+       </if>
+       <if test="userRoleStatus != null" >
+        `user_role_status`= #{userRoleStatus,jdbcType=TINYINT},
+       </if>
+       <if test="createUser != null" >
+        `create_user`= #{createUser,jdbcType=VARCHAR},
+       </if>
+       <if test="createTime != null" >
+        `create_time`= #{createTime,jdbcType=TIMESTAMP},
+       </if>
+       <if test="updateTime != null" >
+        `update_time`= #{updateTime,jdbcType=TIMESTAMP},
+       </if>
+       <if test="isDeleted != null" >
+        `is_deleted`= #{isDeleted,jdbcType=TINYINT},
+       </if>
+          </set>
+    where _id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.zero.handsup.database.repository.user.ShiroUserRole" >
+    update shiro_user_role
+    set 
+       `user_id` = #{userId,jdbcType=BIGINT},
+       `role_code` = #{roleCode,jdbcType=VARCHAR},
+       `user_role_description` = #{userRoleDescription,jdbcType=VARCHAR},
+       `user_role_status` = #{userRoleStatus,jdbcType=TINYINT},
+       `create_user` = #{createUser,jdbcType=VARCHAR},
+       `create_time` = #{createTime,jdbcType=TIMESTAMP},
+       `update_time` = #{updateTime,jdbcType=TIMESTAMP},
+       `is_deleted` = #{isDeleted,jdbcType=TINYINT}
+     where _id = #{id,jdbcType=INTEGER}
+  </update>
+  
+
+  
+  <select id="selectCount" resultType="java.lang.Integer" parameterType="com.zero.handsup.database.repository.user.ShiroUserRole" >
+    select count(*) from shiro_user_role
+    <where >
+            <if test="id != null" >
+        and `_id` = #{id,jdbcType=INTEGER}
+      </if>
+            <if test="userId != null" >
+        and `user_id` = #{userId,jdbcType=BIGINT}
+      </if>
+            <if test="roleCode != null" >
+        and `role_code` = #{roleCode,jdbcType=VARCHAR}
+      </if>
+            <if test="userRoleDescription != null" >
+        and `user_role_description` = #{userRoleDescription,jdbcType=VARCHAR}
+      </if>
+            <if test="userRoleStatus != null" >
+        and `user_role_status` = #{userRoleStatus,jdbcType=TINYINT}
+      </if>
+            <if test="createUser != null" >
+        and `create_user` = #{createUser,jdbcType=VARCHAR}
+      </if>
+            <if test="createTime != null" >
+        and `create_time` = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+            <if test="updateTime != null" >
+        and `update_time` = #{updateTime,jdbcType=TIMESTAMP}
+      </if>
+            <if test="isDeleted != null" >
+        and `is_deleted` = #{isDeleted,jdbcType=TINYINT}
+      </if>
+          </where>
+  </select>
+
+    <select id="selectPage" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from shiro_user_role where 1 = 1 
+        <if test="shiroUserRole.id != null" >
+      and `_id` = #{shiroUserRole.id,jdbcType=INTEGER}
+    </if>
+        <if test="shiroUserRole.userId != null" >
+      and `user_id` = #{shiroUserRole.userId,jdbcType=BIGINT}
+    </if>
+        <if test="shiroUserRole.roleCode != null" >
+      and `role_code` = #{shiroUserRole.roleCode,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUserRole.userRoleDescription != null" >
+      and `user_role_description` = #{shiroUserRole.userRoleDescription,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUserRole.userRoleStatus != null" >
+      and `user_role_status` = #{shiroUserRole.userRoleStatus,jdbcType=TINYINT}
+    </if>
+        <if test="shiroUserRole.createUser != null" >
+      and `create_user` = #{shiroUserRole.createUser,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroUserRole.createTime != null" >
+      and `create_time` = #{shiroUserRole.createTime,jdbcType=TIMESTAMP}
+    </if>
+        <if test="shiroUserRole.updateTime != null" >
+      and `update_time` = #{shiroUserRole.updateTime,jdbcType=TIMESTAMP}
+    </if>
+        <if test="shiroUserRole.isDeleted != null" >
+      and `is_deleted` = #{shiroUserRole.isDeleted,jdbcType=TINYINT}
+    </if>
+        <if test="pageable.sort != null" >
+      order by 
+      <foreach collection="pageable.sort" item="order" separator="," >
+        <if test="
+   order.property == '_id' 
+   || order.property == 'user_id'
+   || order.property == 'role_code'
+   || order.property == 'user_role_description'
+   || order.property == 'user_role_status'
+   || order.property == 'create_user'
+   || order.property == 'create_time'
+   || order.property == 'update_time'
+   || order.property == 'is_deleted'
+        " >
+        		${order.property} ${order.direction}
+        </if>
+      </foreach>
+    </if>
+    <if test="pageable.offset >= 0 and pageable.pageSize > 0" >
+      limit ${pageable.offset}, ${pageable.pageSize}
+    </if>
+  </select>
+ </mapper>
+  
+
+  
+	

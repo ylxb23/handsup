@@ -1,0 +1,27 @@
+
+project(":${projectName}-web:${projectName}-web-service-api") {
+    description = "service api module"
+	
+    dependencies {
+		compile(project(":${projectName}-data:${projectName}-data-database"))
+		
+    }
+}
+
+project(":${projectName}-web:${projectName}-web-service") {
+    description = "service module"
+	
+    dependencies {
+		compile(project(":${projectName}-web:${projectName}-web-service-api"))
+		
+    }
+}
+
+project(":${projectName}-web:${projectName}-web-webapp") {
+    description = "webapp module"
+	
+    dependencies {
+		compile(project(":${projectName}-web:${projectName}-web-service"))
+		
+    }
+}

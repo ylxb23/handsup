@@ -27,6 +27,18 @@ configure(webappProjects) {
 			}
 		}
 	}
+	// load env's properties into application.properties
+/*	task packageWar {
+		def fromFile = "$buildDir/resources/properties/$env/application.properties"
+		def intoFile = "$buildDir/resources/properties/application.properties"
+		copy {
+			from fromFile
+			into intoFile
+		}
+		println "copy $fromFile into $intoFile"
+	}
+*/
+
 	dependencies {
 		providedCompile(libraries.servlet_api)
 		providedCompile(libraries.jsp_api)

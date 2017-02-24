@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zero.handsup.database.repository.user.ShiroPermissionRepository" >
+  <resultMap id="BaseResultMap" type="com.zero.handsup.database.repository.user.ShiroPermission" >
+    <id column="_id" property="id" jdbcType="INTEGER" />
+    <id column="permission_code" property="permissionCode" jdbcType="VARCHAR" />
+    <result column="permission_value" property="permissionValue" jdbcType="VARCHAR" />
+    <result column="permission_name" property="permissionName" jdbcType="VARCHAR" />
+    <result column="permission_description" property="permissionDescription" jdbcType="VARCHAR" />
+    <result column="permission_status" property="permissionStatus" jdbcType="TINYINT" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="TINYINT" />
+  </resultMap>
+
+ <sql id="Base_Column_List" >
+   `_id`,
+   `permission_code`,
+   `permission_value`,
+   `permission_name`,
+   `permission_description`,
+   `permission_status`,
+   `create_user`,
+   `create_time`,
+   `update_time`,
+   `is_deleted`
+ </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from shiro_permission
+    where _id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from shiro_permission
+    where _id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.zero.handsup.database.repository.user.ShiroPermission" >
+    insert into shiro_permission ( 
+     `_id`,
+     `permission_code`,
+     `permission_value`,
+     `permission_name`,
+     `permission_description`,
+     `permission_status`,
+     `create_user`,
+     `create_time`,
+     `update_time`,
+     `is_deleted`
+    )
+    values (
+     #{id,jdbcType=INTEGER},
+     #{permissionCode,jdbcType=VARCHAR},
+     #{permissionValue,jdbcType=VARCHAR},
+     #{permissionName,jdbcType=VARCHAR},
+     #{permissionDescription,jdbcType=VARCHAR},
+     #{permissionStatus,jdbcType=TINYINT},
+     #{createUser,jdbcType=VARCHAR},
+     #{createTime,jdbcType=TIMESTAMP},
+     #{updateTime,jdbcType=TIMESTAMP},
+     #{isDeleted,jdbcType=TINYINT}
+ )
+  </insert>
+  
+  
+  
+  <insert id="insertSelective" parameterType="com.zero.handsup.database.repository.user.ShiroPermission" >
+    insert into shiro_permission
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        `_id`,
+      </if>
+      <if test="permissionCode != null" >
+        `permission_code`,
+      </if>
+      <if test="permissionValue != null" >
+        `permission_value`,
+      </if>
+      <if test="permissionName != null" >
+        `permission_name`,
+      </if>
+      <if test="permissionDescription != null" >
+        `permission_description`,
+      </if>
+      <if test="permissionStatus != null" >
+        `permission_status`,
+      </if>
+      <if test="createUser != null" >
+        `create_user`,
+      </if>
+      <if test="createTime != null" >
+        `create_time`,
+      </if>
+      <if test="updateTime != null" >
+        `update_time`,
+      </if>
+      <if test="isDeleted != null" >
+        `is_deleted`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="permissionCode != null" >
+        #{permissionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionValue != null" >
+        #{permissionValue,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionName != null" >
+        #{permissionName,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionDescription != null" >
+        #{permissionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionStatus != null" >
+        #{permissionStatus,jdbcType=TINYINT},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.zero.handsup.database.repository.user.ShiroPermission" >
+    update shiro_permission
+	  <set>
+       <if test="permissionValue != null" >
+        `permission_value`= #{permissionValue,jdbcType=VARCHAR},
+       </if>
+       <if test="permissionName != null" >
+        `permission_name`= #{permissionName,jdbcType=VARCHAR},
+       </if>
+       <if test="permissionDescription != null" >
+        `permission_description`= #{permissionDescription,jdbcType=VARCHAR},
+       </if>
+       <if test="permissionStatus != null" >
+        `permission_status`= #{permissionStatus,jdbcType=TINYINT},
+       </if>
+       <if test="createUser != null" >
+        `create_user`= #{createUser,jdbcType=VARCHAR},
+       </if>
+       <if test="createTime != null" >
+        `create_time`= #{createTime,jdbcType=TIMESTAMP},
+       </if>
+       <if test="updateTime != null" >
+        `update_time`= #{updateTime,jdbcType=TIMESTAMP},
+       </if>
+       <if test="isDeleted != null" >
+        `is_deleted`= #{isDeleted,jdbcType=TINYINT},
+       </if>
+          </set>
+    where _id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.zero.handsup.database.repository.user.ShiroPermission" >
+    update shiro_permission
+    set 
+       `permission_value` = #{permissionValue,jdbcType=VARCHAR},
+       `permission_name` = #{permissionName,jdbcType=VARCHAR},
+       `permission_description` = #{permissionDescription,jdbcType=VARCHAR},
+       `permission_status` = #{permissionStatus,jdbcType=TINYINT},
+       `create_user` = #{createUser,jdbcType=VARCHAR},
+       `create_time` = #{createTime,jdbcType=TIMESTAMP},
+       `update_time` = #{updateTime,jdbcType=TIMESTAMP},
+       `is_deleted` = #{isDeleted,jdbcType=TINYINT}
+     where _id = #{id,jdbcType=INTEGER}
+  </update>
+  
+
+  
+  <select id="selectCount" resultType="java.lang.Integer" parameterType="com.zero.handsup.database.repository.user.ShiroPermission" >
+    select count(*) from shiro_permission
+    <where >
+            <if test="id != null" >
+        and `_id` = #{id,jdbcType=INTEGER}
+      </if>
+            <if test="permissionCode != null" >
+        and `permission_code` = #{permissionCode,jdbcType=VARCHAR}
+      </if>
+            <if test="permissionValue != null" >
+        and `permission_value` = #{permissionValue,jdbcType=VARCHAR}
+      </if>
+            <if test="permissionName != null" >
+        and `permission_name` = #{permissionName,jdbcType=VARCHAR}
+      </if>
+            <if test="permissionDescription != null" >
+        and `permission_description` = #{permissionDescription,jdbcType=VARCHAR}
+      </if>
+            <if test="permissionStatus != null" >
+        and `permission_status` = #{permissionStatus,jdbcType=TINYINT}
+      </if>
+            <if test="createUser != null" >
+        and `create_user` = #{createUser,jdbcType=VARCHAR}
+      </if>
+            <if test="createTime != null" >
+        and `create_time` = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+            <if test="updateTime != null" >
+        and `update_time` = #{updateTime,jdbcType=TIMESTAMP}
+      </if>
+            <if test="isDeleted != null" >
+        and `is_deleted` = #{isDeleted,jdbcType=TINYINT}
+      </if>
+          </where>
+  </select>
+
+    <select id="selectPage" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from shiro_permission where 1 = 1 
+        <if test="shiroPermission.id != null" >
+      and `_id` = #{shiroPermission.id,jdbcType=INTEGER}
+    </if>
+        <if test="shiroPermission.permissionCode != null" >
+      and `permission_code` = #{shiroPermission.permissionCode,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroPermission.permissionValue != null" >
+      and `permission_value` = #{shiroPermission.permissionValue,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroPermission.permissionName != null" >
+      and `permission_name` = #{shiroPermission.permissionName,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroPermission.permissionDescription != null" >
+      and `permission_description` = #{shiroPermission.permissionDescription,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroPermission.permissionStatus != null" >
+      and `permission_status` = #{shiroPermission.permissionStatus,jdbcType=TINYINT}
+    </if>
+        <if test="shiroPermission.createUser != null" >
+      and `create_user` = #{shiroPermission.createUser,jdbcType=VARCHAR}
+    </if>
+        <if test="shiroPermission.createTime != null" >
+      and `create_time` = #{shiroPermission.createTime,jdbcType=TIMESTAMP}
+    </if>
+        <if test="shiroPermission.updateTime != null" >
+      and `update_time` = #{shiroPermission.updateTime,jdbcType=TIMESTAMP}
+    </if>
+        <if test="shiroPermission.isDeleted != null" >
+      and `is_deleted` = #{shiroPermission.isDeleted,jdbcType=TINYINT}
+    </if>
+        <if test="pageable.sort != null" >
+      order by 
+      <foreach collection="pageable.sort" item="order" separator="," >
+        <if test="
+   order.property == '_id' 
+   || order.property == 'permission_code'
+   || order.property == 'permission_value'
+   || order.property == 'permission_name'
+   || order.property == 'permission_description'
+   || order.property == 'permission_status'
+   || order.property == 'create_user'
+   || order.property == 'create_time'
+   || order.property == 'update_time'
+   || order.property == 'is_deleted'
+        " >
+        		${order.property} ${order.direction}
+        </if>
+      </foreach>
+    </if>
+    <if test="pageable.offset >= 0 and pageable.pageSize > 0" >
+      limit ${pageable.offset}, ${pageable.pageSize}
+    </if>
+  </select>
+ </mapper>
+  
+
+  
+	

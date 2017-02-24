@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<!-- shiro filter defined here -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" >
+		<property name="securityManager" ref="shiroSecurityManager" />
+		<!-- 登陆的路径 -->
+		<property name="loginUrl" value="${shiro.loginUrl}" />
+		<!-- 登录成功后要跳转的路径(最好不要在这里配置，因为登录成功后的处理逻辑在LoginController里硬编码) --> 
+		<property name="successUrl" value="${shiro.successUrl}" />
+		<!-- 用户访问未授权的资源时所显示的链接 -->
+		<property name="unauthorizedUrl" value="${shiro.unauthorizedUrl}" />
+		<property name="filters">
+			<util:map>
+				<entry key="authc" value-ref="captchaFormAuthenticationFilter" />
+			</util:map>
+		</property>
+		<property name="filterChainDefinitions">
+			<value>
+				# anon 表示不需要认证; authc 表示需要认证
+				/=authc
+				/login=anon
+				/kaptcha/verificationcode.jpg=anon
+				# /logout.do*=anon
+				# 权限配置示例（perms[SECURITY_ACCOUNT_VIEW] 表示用户需要提供值为“SECURITY_ACCOUNT_VIEW”Permission 信息）
+				# /security/account/view.do=authc,perms[SECURITY_ACCOUNT_VIEW]
+				/auth/**=authc
+				/sec/**=authc
+			</value>
+		</property>
+	</bean>
+	
+	<!-- 
+		开启 Shiro 注解, 需借助SpringAOP扫描使用Shiro注解的类, 并在必要时进行安全逻辑验证:
+		如: @RequiresRoles, @RequiresPermissions
+	-->
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" />
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor" />
+	
+	<!-- 密码加密匹配对象 -->
+	<bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.Md5CredentialsMatcher" />
+	
+	<!-- 缓存管理 -->
+	<bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />
+	
+	<!-- shiro 安全管理器 -->
+	<bean id="shiroSecurityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="handsupAuthrozingRealm" />
+		<property name="cacheManager" ref="cacheManager" />
+	</bean>
+	<!-- my realm realize 使用注解注入 -->
+	<bean id="handsupAuthrozingRealm" class="com.zero.handsup.service.impl.common.HandsupMerchantRealm" />
+	
+	<bean id="captchaFormAuthenticationFilter" class="com.zero.handsup.service.impl.common.CaptchaFormAuthenticationFilter" />
+	
+	<!-- cache manager -->
+	<!-- <bean id="shiroCacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" /> -->
+	<!--  -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+</beans>

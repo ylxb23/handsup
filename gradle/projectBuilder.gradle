@@ -46,3 +46,18 @@ println("---------------------------");
 	apply from: "$rootDir/gradle/webappProjects.gradle"
 // scala projects configurations 
 	apply from: "$rootDir/gradle/scalaProjects.gradle"
+
+	
+
+// properties
+def env = System.getProperty("env") ?:"development"
+/*
+def getProperties = {
+	def properties = new Properties()
+	def propertiesPath = sourceSets.main.resources.srcDir[1].path
+	file("$propertiesPath/properties/application.properties").withInputStream{inputStream -> 
+		properties.load(inputStream);
+	}
+	properties
+}
+*/

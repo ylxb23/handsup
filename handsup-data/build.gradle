@@ -1,0 +1,17 @@
+project(":${projectName}-data:${projectName}-data-database-api") {
+    description = "database api module"
+	
+    dependencies {
+		compile(project(":${projectName}-base:${projectName}-base-common"))
+		
+    }
+}
+
+project(":${projectName}-data:${projectName}-data-database") {
+    description = "database module"
+	
+    dependencies {
+		compile(project(":${projectName}-data:${projectName}-data-database-api"))
+		
+    }
+}

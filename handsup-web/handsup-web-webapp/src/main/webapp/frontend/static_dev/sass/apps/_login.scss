@@ -1,0 +1,207 @@
+/**
+ * 登录相关页面CSS样式
+ */
+.loginmain {
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	min-width: 1280px;
+	min-height: 780px;
+	background: url("../img/bg_login.png") 0% 0% / 100% 100% no-repeat ;
+	
+	.loginform {
+		width: 540px;
+		margin: 0 auto;
+		padding: 32px;
+//		background: rgba(0,0,0,0.05);
+		margin-top: -88px;
+		color: $formfrontcolor;
+		
+		h1 {
+			font-weight: 800;
+			margin-bottom: 2em;
+			text-align: center;
+			color: $vipcolorcode;
+		}
+		h3 {
+// 			display: block;
+			font-weight: 400;
+			font-size: 1.25rem;
+			text-align: center;
+			color: #777;
+		}
+		
+		.form {
+			margin-top: 0em;
+			display: block;
+			.righttext {
+				height: 37px;
+				width: 100%;
+				a {
+					display: block;
+					text-align: center;
+				}
+			}
+			
+			.form-group {
+				display: block;
+				
+				label {
+					margin-bottom: 5px;
+					color: #eee;
+					font-weight: 500;
+					font-size: 17px;
+				}
+			
+				.form-control {
+					color: $formfrontcolor;
+					border: 1px solid $vipcolor;
+					border-radius: 5px;
+					box-shadow: none;
+					font-size: 14px;
+					background-color: rgba(255,255,255,0.1);
+					label {
+						border: none;
+					}
+					label:hover {
+						border: none;
+					}
+				}
+				.form-control:hover {
+					box-shadow: 0 0 0 2px $vipcolor;
+				}
+				.button {
+					box-shadow: none;
+				}
+				.button:hover {
+					box-shadow: 0 0 0 2px $vipcolor;
+				}
+				.span6c {
+					float: left;
+					width: 60%;
+					position: relative;
+					min-height: 1px;
+					padding-right: 15px;
+				}
+				
+				.span4c {
+					float: left;
+					width: 40%;
+					position: relative;
+					min-height: 1px;
+				}
+			
+				.spancenter {
+					float: left;
+					width: 99%;
+					position: relative;
+					min-height: 1px;
+				}
+			
+				.kaptchaimg {
+					width: 130px;
+					height: 37px;
+				}
+				input[type="submit"],input[type="button"] {
+					background-color: $vipcolorcode;
+				}
+			}
+			.row {
+				height: 60px;
+				width: 100%;
+				padding: 7px 0px;
+				margin: 13px 0px;
+			}
+		}
+		
+		.form-horizontal {
+			label {
+				line-height: 34px;
+				margin-bottom: 0;
+				padding-top: 0 !important;
+			}
+		}
+		
+		.control-label {
+			color: $formfrontcolor;
+		}
+	
+		.col-sm-7 {
+			float: left;
+			width: 66.66%;
+			position: relative;
+			min-height: 1px;
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+		.col-sm-3 {
+			float: left;
+			width: 33.33%;
+			min-height: 1px;
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+		.col-sm-8 {
+			float: left;
+			width: 75%;
+			position: relative;
+			min-height: 1px;
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+		.col-sm-2 {
+			float: left;
+			width: 25%;
+			min-height: 1px;
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+		.tiphere {
+			position: relative;
+		}
+	}
+
+	
+	.passwordruletip {
+		position: absolute;
+		color: $offwhite;
+		right: -320px;
+		top: 0;
+		
+		.tipicon {
+			float: left;
+			width: 57px;
+			height: 57px;
+		    font-size: 2.15em;
+		}
+		
+		.tiprule {
+			float: left;
+			background: rgba(111,111,111,0.30);
+			padding: 17px 27px;
+			border-radius: 7px;
+			
+			
+			.title {
+				font-weight: 700;
+				font-size: 1.15em;
+			}
+			.content {
+				font-size: 0.85em;
+				padding-top: 0.70em;
+				ul {
+					margin: 0;
+					padding: 0;
+					li {
+						list-style: none;
+						line-height: 1.85em;;
+					}
+				}
+			}
+		}
+	}
+}

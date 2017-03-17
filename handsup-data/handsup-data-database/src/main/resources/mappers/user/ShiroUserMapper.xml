@@ -9,8 +9,6 @@
     <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
     <result column="user_lastloginip" property="userLastloginip" jdbcType="VARCHAR" />
     <result column="user_lastlogintime" property="userLastlogintime" jdbcType="TIMESTAMP" />
-    <result column="user_merchant_code" property="userMerchantCode" jdbcType="VARCHAR" />
-    <result column="user_sales_code" property="userSalesCode" jdbcType="VARCHAR" />
     <result column="user_alias" property="userAlias" jdbcType="VARCHAR" />
     <result column="user_status" property="userStatus" jdbcType="TINYINT" />
     <result column="create_user" property="createUser" jdbcType="VARCHAR" />
@@ -27,8 +25,6 @@
    `user_password`,
    `user_lastloginip`,
    `user_lastlogintime`,
-   `user_merchant_code`,
-   `user_sales_code`,
    `user_alias`,
    `user_status`,
    `create_user`,
@@ -58,8 +54,6 @@
      `user_password`,
      `user_lastloginip`,
      `user_lastlogintime`,
-     `user_merchant_code`,
-     `user_sales_code`,
      `user_alias`,
      `user_status`,
      `create_user`,
@@ -75,8 +69,6 @@
      #{userPassword,jdbcType=VARCHAR},
      #{userLastloginip,jdbcType=VARCHAR},
      #{userLastlogintime,jdbcType=TIMESTAMP},
-     #{userMerchantCode,jdbcType=VARCHAR},
-     #{userSalesCode,jdbcType=VARCHAR},
      #{userAlias,jdbcType=VARCHAR},
      #{userStatus,jdbcType=TINYINT},
      #{createUser,jdbcType=VARCHAR},
@@ -111,12 +103,6 @@
       </if>
       <if test="userLastlogintime != null" >
         `user_lastlogintime`,
-      </if>
-      <if test="userMerchantCode != null" >
-        `user_merchant_code`,
-      </if>
-      <if test="userSalesCode != null" >
-        `user_sales_code`,
       </if>
       <if test="userAlias != null" >
         `user_alias`,
@@ -158,12 +144,6 @@
       </if>
       <if test="userLastlogintime != null" >
         #{userLastlogintime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="userMerchantCode != null" >
-        #{userMerchantCode,jdbcType=VARCHAR},
-      </if>
-      <if test="userSalesCode != null" >
-        #{userSalesCode,jdbcType=VARCHAR},
       </if>
       <if test="userAlias != null" >
         #{userAlias,jdbcType=VARCHAR},
@@ -207,12 +187,6 @@
        <if test="userLastlogintime != null" >
         `user_lastlogintime`= #{userLastlogintime,jdbcType=TIMESTAMP},
        </if>
-       <if test="userMerchantCode != null" >
-        `user_merchant_code`= #{userMerchantCode,jdbcType=VARCHAR},
-       </if>
-       <if test="userSalesCode != null" >
-        `user_sales_code`= #{userSalesCode,jdbcType=VARCHAR},
-       </if>
        <if test="userAlias != null" >
         `user_alias`= #{userAlias,jdbcType=VARCHAR},
        </if>
@@ -244,8 +218,6 @@
        `user_password` = #{userPassword,jdbcType=VARCHAR},
        `user_lastloginip` = #{userLastloginip,jdbcType=VARCHAR},
        `user_lastlogintime` = #{userLastlogintime,jdbcType=TIMESTAMP},
-       `user_merchant_code` = #{userMerchantCode,jdbcType=VARCHAR},
-       `user_sales_code` = #{userSalesCode,jdbcType=VARCHAR},
        `user_alias` = #{userAlias,jdbcType=VARCHAR},
        `user_status` = #{userStatus,jdbcType=TINYINT},
        `create_user` = #{createUser,jdbcType=VARCHAR},
@@ -280,12 +252,6 @@
       </if>
             <if test="userLastlogintime != null" >
         and `user_lastlogintime` = #{userLastlogintime,jdbcType=TIMESTAMP}
-      </if>
-            <if test="userMerchantCode != null" >
-        and `user_merchant_code` = #{userMerchantCode,jdbcType=VARCHAR}
-      </if>
-            <if test="userSalesCode != null" >
-        and `user_sales_code` = #{userSalesCode,jdbcType=VARCHAR}
       </if>
             <if test="userAlias != null" >
         and `user_alias` = #{userAlias,jdbcType=VARCHAR}
@@ -333,12 +299,6 @@
         <if test="shiroUser.userLastlogintime != null" >
       and `user_lastlogintime` = #{shiroUser.userLastlogintime,jdbcType=TIMESTAMP}
     </if>
-        <if test="shiroUser.userMerchantCode != null" >
-      and `user_merchant_code` = #{shiroUser.userMerchantCode,jdbcType=VARCHAR}
-    </if>
-        <if test="shiroUser.userSalesCode != null" >
-      and `user_sales_code` = #{shiroUser.userSalesCode,jdbcType=VARCHAR}
-    </if>
         <if test="shiroUser.userAlias != null" >
       and `user_alias` = #{shiroUser.userAlias,jdbcType=VARCHAR}
     </if>
@@ -368,8 +328,6 @@
    || order.property == 'user_password'
    || order.property == 'user_lastloginip'
    || order.property == 'user_lastlogintime'
-   || order.property == 'user_merchant_code'
-   || order.property == 'user_sales_code'
    || order.property == 'user_alias'
    || order.property == 'user_status'
    || order.property == 'create_user'

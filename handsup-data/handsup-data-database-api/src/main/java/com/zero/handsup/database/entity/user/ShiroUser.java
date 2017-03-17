@@ -15,8 +15,6 @@ public class ShiroUser implements Serializable{
 	private String userPassword;
 	private String userLastloginip;
 	private Date userLastlogintime;
-	private String userMerchantCode;
-	private String userSalesCode;
 	private String userAlias;
 	private Byte userStatus;
 	private String createUser;
@@ -78,22 +76,6 @@ public class ShiroUser implements Serializable{
 	
 	public Date getUserLastlogintime(){
 		return this.userLastlogintime;
-	}
-		
-	public void setUserMerchantCode(String userMerchantCode){
-		this.userMerchantCode = userMerchantCode;
-	}
-	
-	public String getUserMerchantCode(){
-		return this.userMerchantCode;
-	}
-		
-	public void setUserSalesCode(String userSalesCode){
-		this.userSalesCode = userSalesCode;
-	}
-	
-	public String getUserSalesCode(){
-		return this.userSalesCode;
 	}
 		
 	public void setUserAlias(String userAlias){

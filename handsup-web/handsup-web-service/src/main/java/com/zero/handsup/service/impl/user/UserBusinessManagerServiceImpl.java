@@ -86,8 +86,6 @@ public class UserBusinessManagerServiceImpl implements UserBusinessManagerServic
 		account.setUserLastLoginip(user.getUserLastloginip());
 		account.setUserLastLogintime(DateUtils.format(user.getUserLastlogintime(), DateUtils.NORMAL_DATE_FORMATTER));
 		account.setUserLoginname(username);
-		account.setUserMerchantCode(user.getUserMerchantCode());
-		account.setUserSalesCode(user.getUserSalesCode());
 		account.setRoles(roles);
 		return account;
 	}

@@ -99,8 +99,6 @@ CREATE TABLE `shiro_user` (
   `user_password` varchar(50) NOT NULL DEFAULT '' COMMENT '用户密码(密文)',
   `user_lastloginip` varchar(50) NOT NULL DEFAULT '' COMMENT '用户最后登录的IP地址',
   `user_lastlogintime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '用户最后登录时间',
-  `user_merchant_code` varchar(50) NOT NULL DEFAULT '' COMMENT '用户所属商户的商户code',
-  `user_sales_code` varchar(50) NOT NULL DEFAULT '' COMMENT '用户所属门店的门店code',
   `user_alias` varchar(255) NOT NULL DEFAULT '' COMMENT '用户别名(职称)',
   `user_status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '用户状态(1-有效; 2-无效)',
   `create_user` varchar(50) NOT NULL DEFAULT '' COMMENT '记录创建者的用户ID',

@@ -3,7 +3,7 @@
  */
  
 ext {
-	alibabaJsonVersion				= '1.2.18'
+	alibabaJsonVersion				= '1.2.29'
 	scalaVersion					= '2.12.1'
 	
 	servletApiVersion				= '3.0.1'

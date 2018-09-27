@@ -22,14 +22,13 @@ public class ShiroController {
 	public String shiroDoLogin(HttpServletRequest request, HttpServletResponse response) {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		logger.info("用户登录, 用户名[{}], 密码[{}].");
+		logger.debug("用户登录, 用户名[{}], 密码[{}].", username, password);
 		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 		token.setRememberMe(true);
 		
 		Subject subject = SecurityUtils.getSubject();
 		try {
 			subject.login(token);
-			
 		} catch(Exception e) {
 			logger.error(e.getMessage(), e);
 		}

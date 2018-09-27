@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * 用户信息打印
  *
@@ -17,8 +19,10 @@ public class IdentityLoggerInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		// TODO Auto-generated method stub
-		
+		logger.debug("handler: {}, requst: {}, response: {}", 
+				JSONObject.toJSONString(handler), 
+				JSONObject.toJSONString(request), 
+				JSONObject.toJSONString(response));
 		
 		return super.preHandle(request, response, handler);
 	}

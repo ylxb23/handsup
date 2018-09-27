@@ -53,7 +53,7 @@
 		<property name="cacheManager" ref="cacheManager" />
 	</bean>
 	<!-- my realm realize 使用注解注入 -->
-	<bean id="handsupAuthrozingRealm" class="com.zero.handsup.service.impl.common.HandsupMerchantRealm" />
+	<bean id="handsupAuthrozingRealm" class="com.zero.handsup.service.impl.common.HandsupAuthrozingRealm" />
 	
 	<bean id="captchaFormAuthenticationFilter" class="com.zero.handsup.service.impl.common.CaptchaFormAuthenticationFilter" />
 	

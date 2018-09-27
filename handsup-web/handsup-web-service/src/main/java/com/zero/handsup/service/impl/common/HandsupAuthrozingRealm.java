@@ -15,7 +15,6 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import com.alibaba.fastjson.JSONObject;
@@ -26,7 +25,6 @@ import com.zero.handsup.service.user.UserBusinessManagerService;
  * JDBC Realm, required by applicationContext-shiro.xml#securityManager
  * @author leo.zeng
  */
-@Component(value="handsupAuthrozingRealm")
 public class HandsupAuthrozingRealm extends AuthorizingRealm {
 	private final Logger logger = LoggerFactory.getLogger(HandsupAuthrozingRealm.class);
 	

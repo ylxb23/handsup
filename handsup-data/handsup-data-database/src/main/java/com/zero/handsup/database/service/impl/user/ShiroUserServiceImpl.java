@@ -2,10 +2,10 @@ package com.zero.handsup.database.service.impl.user;
 
 import java.util.List;
 
-import org.apache.shiro.util.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.zero.handsup.common.enums.EffectiveEnums.FieldStatusEnum;
 import com.zero.handsup.database.entity.user.ShiroUser;

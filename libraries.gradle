@@ -25,7 +25,7 @@ ext {
 
 	springDataVersion				= '1.13.0.RELEASE'
 	springVersion					= '4.3.5.RELEASE'
-	springSecurityVersion			= '4.2.1.RELEASE'
+	springSecurityVersion			= '4.2.2.RELEASE'
 	springMockVersion				= '2.0.8'
 	
 	scalaTestVersion				= '3.0.1'
@@ -73,6 +73,7 @@ ext {
 		springWebmvc:				"org.springframework:spring-webmvc:${springVersion}",
 
 		springSecurity:				"org.springframework-security:spring-security-web:${springSecurityVersion}",
+		springSecurityConfig:		"org.springframework-security:spring-security-config:${springSecurityVersion}",
 		springSecurityLdap:			"org.springframework-security:spring-security-ldap:${springSecurityVersion}",
 		springSecurityCas:			"org.springframework-security:spring-security-cas:${springSecurityVersion}",
 		springMock:					"org.springframework:spring-mock:${springMockVersion}",

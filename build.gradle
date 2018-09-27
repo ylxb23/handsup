@@ -2,3 +2,10 @@
 apply from: './libraries.gradle'
 apply from: "$rootDir/gradle/projectBuilder.gradle"
 
+configurations.all {
+	resolutionStrategy.eachDependency { DependencyResolveDetails details -> 
+		if(details.requested.group == 'org.springframework') {
+			details.useVersion = '{springVersion}'
+		}
+	}
+}

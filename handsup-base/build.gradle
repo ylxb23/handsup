@@ -27,14 +27,12 @@ project(":${projectName}-base:${projectName}-base-common") {
 		compile(libraries.springTx)
 		compile(libraries.springConextSupport)
 		compile(libraries.mybatisSpring)
-		
 		compile(libraries.kaptcha)
 		compile(libraries.shiroWeb)
 		compile(libraries.shiroCas)
 		compile(libraries.shiroSpring) {
 			
 		}
-		
 		testCompile(libraries.springMock)
     }
 }
